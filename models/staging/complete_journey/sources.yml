@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: complete_journey
+    tables:
+      - name: campaign_desc
+      - name: campaign_table
+      - name: causal_data
+      - name: coupon
+      - name: coupon_redempt
+      - name: hh_demographic
+      - name: product
+      - name: transaction_data
