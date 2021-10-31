@@ -1,3 +1,17 @@
+{{ config(
+    materialized='table',
+    partition_by={
+      "field": "day_number",
+      "data_type": "int64",
+      "range": {
+        "start": 0,
+        "end": 719,
+        "interval": 10
+      }
+    },
+    cluster_by = ["store_id", "department", "brand", "commodity_description"],
+)}}
+
 with products as (
     select * from {{ ref('stg_complete_journey__products') }}
 ),
@@ -20,9 +34,9 @@ final as (
         products.sub_commodity_description,
         products.current_size_of_product,
 
-        promotions.product_id,
-        promotions.store_id,
-        promotions.week_number,
+        -- promotions.product_id,
+        -- promotions.store_id,
+        -- promotions.week_number,
         promotions.display_type,
         promotions.mailer_type,
 
@@ -51,6 +65,7 @@ final as (
     left join promotions on 
         transactions.product_id = promotions.product_id
         AND transactions.store_id = promotions.store_id
+        AND transactions.week_number = promotions.week_number
 )
 
 select * from final
