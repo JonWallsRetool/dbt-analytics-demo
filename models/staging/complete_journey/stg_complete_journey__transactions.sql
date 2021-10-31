@@ -14,7 +14,7 @@ final as (
     select 
         transactions.household_id,
         transactions.basket_id,
-        transactions.day_number,
+        transactions.transaction_date,
         transactions.product_id,
         transactions.quantity,
         transactions.sales_value,
