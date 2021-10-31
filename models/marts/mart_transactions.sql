@@ -1,13 +1,9 @@
 {{ config(
     materialized='table',
     partition_by={
-      "field": "day_number",
-      "data_type": "int64",
-      "range": {
-        "start": 0,
-        "end": 719,
-        "interval": 10
-      }
+      "field": "transaction_date",
+      "data_type": "date",
+      "granularity": "day"
     },
     cluster_by = ["store_id", "department", "brand", "commodity_description"],
 )}}
@@ -42,7 +38,7 @@ final as (
 
         transactions.household_id,
         transactions.basket_id,
-        transactions.day_number,
+        transactions.transaction_date,
         transactions.product_id,
         transactions.quantity,
         transactions.sales_value,
