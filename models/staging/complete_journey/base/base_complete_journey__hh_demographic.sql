@@ -8,7 +8,7 @@ renamed as (
 
     select
         age_desc as age_range,
-        marital_status_code as marital_status_code,
+        marital_status_code as marital_status_id,
         income_desc as income_range,
         homeowner_desc as home_ownership,
         hh_comp_desc as household_composition,

@@ -2,7 +2,7 @@ with demographics as (
     select * from {{ ref('base_complete_journey__hh_demographic') }}
 ),
 
-marital_status_codes as (
+marital_status as (
     select * from {{ ref('marital_status') }}
 ),
 
@@ -10,7 +10,7 @@ transactions as (
     select * from {{ ref('base_complete_journey__transaction_data') }}
 ),
 
-stage_table as (
+final as (
     select 
         transactions.household_id,
         transactions.basket_id,
@@ -26,7 +26,7 @@ stage_table as (
         transactions.coupon_match_discount,
         demographics.age_range,
         -- demographics.marital_status_code,
-        marital_status_codes.value as marital_status,
+        marital_status.value as marital_status,
         demographics.income_range,
         demographics.home_ownership,
         demographics.household_composition,
@@ -36,7 +36,7 @@ stage_table as (
 
     from transactions
     left join demographics on transactions.household_id = demographics.household_id
-    inner join marital_status_codes on demographics.marital_status_code = marital_status_codes.marital_status_code
+    inner join marital_status on demographics.marital_status_id = marital_status.marital_status_id
 )
 
-select * from stage_table
+select * from final
