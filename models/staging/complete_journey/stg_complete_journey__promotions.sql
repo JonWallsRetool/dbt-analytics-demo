@@ -19,3 +19,4 @@ renamed as (
 )
 
 select * from renamed
+-- select count(distinct pk_promotions), count(*) from renamed
