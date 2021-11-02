@@ -1,7 +1,5 @@
 with source as (
-
     select * from {{ source('complete_journey', 'product') }}
-
 ),
 
 renamed as (
