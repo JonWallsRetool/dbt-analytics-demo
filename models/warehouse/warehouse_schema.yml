@@ -14,7 +14,7 @@ models:
         description: ""
 
       - name: basket_id
-        description: ""
+        description: "Unique identifier for basket, combining household_key and basket_id in source data"
 
       - name: days_ago
         description: ""
