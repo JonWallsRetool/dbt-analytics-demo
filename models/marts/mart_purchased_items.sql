@@ -61,8 +61,10 @@ final as (
         households.lifetime_purchase_value,
         households.lifetime_purchase_quantity,
 
-        array_agg(distinct promotions.display_type ignore nulls) as display_types,
-        array_agg(distinct promotions.mailer_type ignore nulls) as mailer_types,
+        -- array_agg(distinct promotions.display_type ignore nulls) as display_types,
+        -- array_agg(distinct promotions.mailer_type ignore nulls) as mailer_types,
+        promotions.display_type,
+        promotions.mailer_type
 
     from transactions
     left join products on transactions.product_id = products.product_id
@@ -72,7 +74,7 @@ final as (
         AND transactions.week_number = promotions.week_number
     left join households on transactions.household_id = households.household_id
 
-    group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+    -- group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
 )
 
 select * from final

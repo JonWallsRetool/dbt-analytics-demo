@@ -1,3 +1,17 @@
+{{ config(
+    materialized='table',
+    partition_by={
+      "field": "product_id",
+      "data_type": "int64",
+      "range": {
+        "start": 0,
+        "end": 20000000,
+        "interval": 20000
+      }
+    },
+    cluster_by = ["product_id", "store_id", "week_number"],
+)}}
+
 with promotions as (
     select * from {{ ref('stg_complete_journey__promotions' )}}
 ),
@@ -16,6 +30,7 @@ final as (
         promotions.product_id,
         promotions.store_id,
         promotions.week_number,
+
         display_types.value as display_type,
         mailer_types.value as mailer_type
     from promotions

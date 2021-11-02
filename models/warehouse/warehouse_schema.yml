@@ -93,3 +93,27 @@ models:
 
       - name: lifetime_purchase_quantity
         description: ""
+
+  - name: fct_promotions
+    description: ""
+    columns:
+      - name: pk_promotions
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: ""
+
+      - name: store_id
+        description: ""
+
+      - name: week_number
+        description: ""
+
+      - name: display_type
+        description: ""
+
+      - name: mailer_type
+        description: ""

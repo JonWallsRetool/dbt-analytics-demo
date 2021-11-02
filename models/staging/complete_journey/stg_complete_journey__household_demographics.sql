@@ -6,7 +6,7 @@ marital_status as (
     select * from {{ ref('marital_status') }}
 ),
 
-renamed as (
+final as (
 
     select
         demographics.age_range as age_range,
@@ -23,4 +23,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from final

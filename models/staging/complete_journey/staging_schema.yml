@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_complete_journey__promotions
+  - name: base_complete_journey__promotions
     description: ""
     columns:
       - name: pk_promotions
