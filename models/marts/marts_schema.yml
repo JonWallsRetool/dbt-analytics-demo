@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: mart_purchased_items
+    description: ""
+    columns:
+      - name: pk_purchased_items
+        description: "Primary key, based on household, basket and product ids"
+        tests:
+          - unique
+          - not_null
+
+      - name: household_id
+        description: "Unique identifier for the household making the purchase"
+
+      - name: basket_id
+        description: "Uniquer identifier for the basket i.e. transaction"
+
+      - name: days_ago
+        description: "Days ago the purchase took place."
+
+      - name: transaction_date
+        description: "Date of the transaction. Can be combined with transaction time for full timestamp."
+
+      - name: product_id
+        description: "Unique identifier for the product"
+
+      - name: quantity
+        description: "Quantity of product purchased (in units determined by current_size_of_product column)"
+
+      - name: sales_value
+        description: "Amount of dollars retailer receives from sale"
+
+      - name: store_id
+        description: "Unique identifier for the store"
+
+      - name: retail_discount
+        description: "Discount applied due to the retailer's loyalty card program"
+
+      - name: transaction_time
+        description: "Time of day when the transaction occurred"
+
+      - name: week_number
+        description: "Week of the transaction in the source data. Ranges from 0-102"
+
+      - name: coupon_discount
+        description: "Discount applied due to manufacturer coupon"
+
+      - name: coupon_match_discount
+        description: "Discount applied due to retailer's match of manufacturer coupon"
+
+      - name: manufacturer_id
+        description: "Manufacturer reference. Note the source sample dataset did not include a mapping to names of any kind."
+
+      - name: department
+        description: "Groups similar products together."
+
+      - name: brand
+        description: "Supermarket own brand (National) or otherwise (Private)"
+
+      - name: commodity_description
+        description: "Groups similar products together at a lower level."
+
+      - name: sub_commodity_description
+        description: "Groups similar products together at the lowest level."
+
+      - name: current_size_of_product
+        description: "Indicates package size (not available for all products)"
+
+      - name: display_type
+        description: "If product is being promoted in-store, the location of the promotional display"
+
+      - name: mailer_type
+        description: "If product is being promoted in mailers, the type of mailer for the promotion"
+
+      - name: age_range
+        description: "Estimated age range"
+
+      - name: marital_status
+        description: "Marital status"
+
+      - name: income_range
+        description: "Household income"
+
+      - name: home_ownership
+        description: "Homeowner, renter, etc"
+
+      - name: household_composition
+        description: "Household composition"
+
+      - name: household_size
+        description: "Size of household up to 5+"
+
+      - name: number_of_children_range
+        description: "Number of children present up to 3+"
+
+      - name: first_purchase
+        description: "First recorded purchase by this household"
+
+      - name: latest_purchase
+        description: "Latest recorded purchase by this household"
+
+      - name: lifetime_purchase_value
+        description: "Total value of all purchases by this household (rounded down)"
+
+      - name: lifetime_purchase_quantity
+        description: "Total quanity of all purchases by this household"

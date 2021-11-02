@@ -1,25 +1,21 @@
-with promotions as (
-    select * from {{ ref('base_complete_journey__promotions' )}}
+with source as (
+    select * from {{ source('complete_journey', 'causal_data') }}
 ),
 
-display_types as (
-    select * from {{ ref('display_types') }}
-),
+renamed as (
 
-mailer_types as (
-    select * from {{ ref('mailer_types') }}
-),
-
-final as (
     select
-        promotions.product_id,
-        promotions.store_id,
-        promotions.week_number,
-        display_types.value as display_type,
-        mailer_types.value as mailer_type
-    from promotions
-    left join display_types on promotions.display_id = display_types.display_id
-    left join mailer_types on promotions.mailer_id = mailer_types.mailer_id
+        concat(cast(product_id as string), '|', cast(store_id as string), '|', cast(week_no as string)) as pk_promotions,
+        product_id as product_id,
+        store_id as store_id,
+        week_no as week_number,
+
+        array_agg(distinct case when display = '0' then null else display end ignore nulls)[offset(0)] as display_id,
+        array_agg(distinct case when mailer = '0' then null else mailer end ignore nulls)[offset(0)] as mailer_id
+
+    from source
+    group by 1,2,3,4
+
 )
 
-select * from final
+select * from renamed

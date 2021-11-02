@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: base_complete_journey__promotions
+    description: ""
+    columns:
+      - name: pk_promotions
+        description: "Unique identifer based on product_id, store_id, week_number"
+        tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        description: ""
+
+      - name: store_id
+        description: ""
+
+      - name: week_number
+        description: ""
+
+      - name: display_id
+        description: ""
+
+      - name: mailer_id
+        description: ""
+
+  - name: stg_complete_journey__household_demographics
+    description: ""
+    columns:
+      - name: age_range
+        description: ""
+
+      - name: marital_status
+        description: ""
+
+      - name: income_range
+        description: ""
+
+      - name: home_ownership
+        description: ""
+
+      - name: household_composition
+        description: ""
+
+      - name: household_size
+        description: ""
+
+      - name: number_of_children_range
+        description: ""
+
+      - name: household_id
+        description: ""
+        tests:
+          - unique
+          - not_null

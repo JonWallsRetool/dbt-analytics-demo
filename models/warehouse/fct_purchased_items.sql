@@ -1,15 +1,14 @@
 with source as (
-
     select * from {{ source('complete_journey', 'transaction_data') }}
-
 ),
 
 renamed as (
 
     select
+        concat(cast(household_key as string), '-', cast (basket_id as string), '-', cast (product_id as string)) as pk_purchased_items,
         household_key as household_id,
         basket_id,
-        -- day as day_number,
+        {{ get_demo_duration() }} - day as days_ago,
         date_sub(current_date(), interval ({{ get_demo_duration() }} - day) day) as transaction_date,
         product_id,
         quantity,

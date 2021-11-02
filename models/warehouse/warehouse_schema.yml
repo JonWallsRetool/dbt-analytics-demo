@@ -1,0 +1,119 @@
+version: 2
+
+models:
+  - name: fct_purchased_items
+    description: ""
+    columns:
+      - name: pk_purchased_items
+        description: "Primary key, based on household, basket and product ids"
+        tests:
+          - unique
+          - not_null
+
+      - name: household_id
+        description: ""
+
+      - name: basket_id
+        description: ""
+
+      - name: days_ago
+        description: ""
+
+      - name: transaction_date
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: quantity
+        description: ""
+
+      - name: sales_value
+        description: ""
+
+      - name: store_id
+        description: ""
+
+      - name: retail_discount
+        description: ""
+
+      - name: transaction_time
+        description: ""
+
+      - name: week_number
+        description: ""
+
+      - name: coupon_discount
+        description: ""
+
+      - name: coupon_match_discount
+        description: ""
+
+  - name: dim_households
+    description: "Dimension + Aggregated Fact Table for households"
+    columns:
+      - name: household_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: age_range
+        description: ""
+
+      - name: marital_status
+        description: ""
+
+      - name: income_range
+        description: ""
+
+      - name: home_ownership
+        description: ""
+
+      - name: household_composition
+        description: ""
+
+      - name: household_size
+        description: ""
+
+      - name: number_of_children_range
+        description: ""
+
+      - name: favourite_store
+        description: ""
+
+      - name: first_purchase
+        description: ""
+
+      - name: latest_purchase
+        description: ""
+
+      - name: lifetime_purchase_value
+        description: ""
+
+      - name: lifetime_purchase_quantity
+        description: ""
+
+  - name: fct_promotions
+    description: ""
+    columns:
+      - name: pk_promotions
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: ""
+
+      - name: store_id
+        description: ""
+
+      - name: week_number
+        description: ""
+
+      - name: display_type
+        description: ""
+
+      - name: mailer_type
+        description: ""
