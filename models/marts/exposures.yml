@@ -2,7 +2,7 @@ version: 2
 
 exposures:
   
-  - name: Sales Overview (Mode)
+  - name: Sales Overview (Mode.io)
     type: dashboard
     maturity: high
     url: https://app.mode.com/jon_walls/reports/4655de5a63e2
