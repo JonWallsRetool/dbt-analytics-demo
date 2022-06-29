@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: complete_journey
-    database: jon-walls
-    schema: complete_journey
+    database: se-demo-340315
+    schema: retail_complete_journey
     tables:
       - name: campaign_desc
       - name: campaign_table
