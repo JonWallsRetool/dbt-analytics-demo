@@ -3,6 +3,7 @@ version: 2
 exposures:
   - name: Retail Analytics Dashboard
     url: https://demos.retool.dev/apps/Analytics%20and%20Retail/Retail%20Analytics?_releaseVersion=latest
+    description: Analytics dashboard with Month To Date and Variance Metrics
     type: dashboard
     maturity: high
     owner: 
@@ -14,6 +15,7 @@ exposures:
 
   - name: Chart Examples
     url: https://demos.retool.dev/apps/Analytics%20and%20Retail/Chart%20Examples
+    description: Data visualization showcase for our Retool application platform
     type: dashboard
     maturity: medium
     owner: 
@@ -25,6 +27,7 @@ exposures:
 
   - name: dbt Admin
     url: https://demos.retool.dev/apps/Analytics%20and%20Retail/DBT%20Admin?_releaseVersion=latest
+    description: Admin panel specifically built for our Retail Analytics data product
     type: application
     maturity: low
     owner: 
@@ -34,27 +37,12 @@ exposures:
     depends_on:
       - ref('mart_purchased_items')
 
-
-  - name: Sales Overview (Mode.io)
-    type: dashboard
-    maturity: high
-    url: https://app.mode.com/jon_walls/reports/4655de5a63e2
-    description: >
-      Sales highlights, plus example customer segment
-    
-    depends_on:
-      - ref('mart_purchased_items')
-      
-    owner:
-      name: Jon Walls
-      email: contact@jonathanwalls.com
-
   - name: Sales Overview (Google Looker Studio)
     type: dashboard
     maturity: high
     url: https://datastudio.google.com/reporting/3fe38c85-4d97-461e-981f-581f48088dac/page/DdeeC
     description: >
-      Sales highlights, plus example customer segment
+      Example of seamless integration with BI data stack
     
     depends_on:
       - ref('mart_purchased_items')
