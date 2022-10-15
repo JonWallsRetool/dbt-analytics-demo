@@ -1,0 +1,15 @@
+version: 2
+
+exposures:
+  - name: Promotional Seed Files
+    url: https://demos.retool.dev/apps/Analytics%20and%20Retail/Retail%20Analytics?_releaseVersion=latest
+    type: application 
+    maturity: low
+    owner: 
+      name: Jon Walls
+      email: jon.walls@retool.com
+    tags: ['Retool']
+    depends_on:
+      - ref('display_types')
+      - ref('mailer_types')
+      - ref('marital_status')
