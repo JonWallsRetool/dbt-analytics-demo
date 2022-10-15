@@ -2,6 +2,7 @@ version: 2
 
 exposures:
   - name: Retail Analytics Dashboard
+    url: https://demos.retool.dev/apps/Analytics%20and%20Retail/Retail%20Analytics?_releaseVersion=latest
     type: dashboard
     maturity: high
     owner: 
@@ -12,6 +13,7 @@ exposures:
       - ref('mart_purchased_items')
 
   - name: Chart Examples
+    url: https://demos.retool.dev/apps/Analytics%20and%20Retail/Chart%20Examples
     type: dashboard
     maturity: medium
     owner: 
@@ -22,6 +24,7 @@ exposures:
       - ref('mart_purchased_items')
 
   - name: dbt Admin
+    url: https://demos.retool.dev/apps/Analytics%20and%20Retail/DBT%20Admin?_releaseVersion=latest
     type: application
     maturity: low
     owner: 
